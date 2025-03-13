@@ -1,9 +1,12 @@
 
 "use client"
 import React from 'react'
-import { RedirectToSignIn, useUser } from '@clerk/nextjs'
-const page = () => {
+import { RedirectToSignIn, useOrganization, useUser } from '@clerk/nextjs'
+import { OrganizationInvitation } from '@clerk/nextjs/server';
+import EmptyOrg from './_components/empty-org';
+const DashBoardPage = () => {
 const {isSignedIn} = useUser();
+const {organization}=useOrganization();
 
 if(!isSignedIn){
  return  <RedirectToSignIn/>
@@ -11,10 +14,15 @@ if(!isSignedIn){
 
 
   return (
-    <div>
-        DashBoard route page
+    <div className='min-h-[100vh] flex-1 h-[calc(100%-80px)] p-6
+    '>
+      
+        {
+          !organization?<EmptyOrg/>:<p>Board List !</p>
+        }
+        
     </div>
   )
 }
 
-export default page
+export default DashBoardPage

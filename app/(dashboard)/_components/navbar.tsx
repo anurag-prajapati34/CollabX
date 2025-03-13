@@ -4,8 +4,11 @@ import React from "react";
 import { SearchInput } from "./search-intput";
 
 import { InviteButton } from "./invite-button";
+import { useOrganization } from "@clerk/nextjs";
 
 const navbar = () => {
+
+  const {organization}=useOrganization();
   return (
     <div className="flex items-center gap-x-4 p-5 ">
       <div className=" hidden lg:flex lg:flex-1">
@@ -37,9 +40,11 @@ const navbar = () => {
           }}
         />
       </div>
-      <OrganizationProfile/>
+ 
 
-      <InviteButton/>
+     {
+      organization && <InviteButton/>
+     }
       <UserButton />
     </div>
   );
