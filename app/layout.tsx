@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import { Toaster } from "@/components/ui/sonner";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,15 +24,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return  <html lang="en" suppressHydrationWarning>
+  return  (
+    <html lang="en" >
   <body >
     <ConvexClientProvider>
       <Toaster/>
+    
    
         {children}
     </ConvexClientProvider>
   </body>
 </html>
+  )
 }
 
 
