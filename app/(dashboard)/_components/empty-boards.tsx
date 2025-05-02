@@ -9,12 +9,12 @@ import { useOrganization } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { useApiMutation } from "@/hooks/use-api-mutation";
 import { toast } from "sonner";
-
+import { useRouter } from "next/navigation";
 
 const EmptyBoards = () => {
   const { organization } = useOrganization();
   const { mutate, pending } = useApiMutation(api.board.create);
-
+  const router=useRouter();
   const onClick =  () => {
     
     if (!organization) return;
@@ -23,6 +23,11 @@ const EmptyBoards = () => {
       orgId: organization.id,
       title: "Untitled",
     })
+    .then((id)=>{
+      toast.success("Board created");
+      router.push(`/board/${id}`);
+    })
+    .catch((error)=>toast.error("Failed to create board"))
   };
 
   return (
