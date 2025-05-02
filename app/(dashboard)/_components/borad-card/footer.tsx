@@ -1,14 +1,14 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { create } from "domain";
+
 
 interface FooterProps{
-    title:String;
-    authorLabel:String;
+    title:string;
+    authorLabel:string;
     createdAtLabel:String;
-    isFavorite:Boolean;
+    isFavorite:boolean;
     onClick:()=>void;
-    disabled:Boolean;
+    disabled:boolean;
 
 }
 
