@@ -15,8 +15,8 @@ interface BoardListPorps {
   };
 }
 const BoardList = ({ orgId, query }: BoardListPorps) => {
-  const data = useQuery(api.boards.get, { orgId });
-
+  const data = useQuery(api.boards.get, { orgId,search:query.search,favorites:query.favorites });
+ 
   if (data==undefined) {
     return (
       <div>
