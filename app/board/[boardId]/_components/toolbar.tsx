@@ -1,4 +1,4 @@
-export const Toolbar=()=>{
+export const Toolbar = () => {
 
     return <div className="absolute top-[50%] 
     -translate-y-[50%] left-2 flex flex-col gap-y-4">
@@ -16,7 +16,7 @@ export const Toolbar=()=>{
             <div>
                 Text
             </div>
-            
+
 
 
         </div>
@@ -33,4 +33,15 @@ export const Toolbar=()=>{
 
 
     </div>
+}
+
+Toolbar.Skeleton = function ToolbarSkeleton() {
+
+    return (
+        <div className="absolute top-[50%] bg-white
+    -translate-y-[50%] left-2 flex flex-col gap-y-4 
+    shadow-md h-[360px] w-[52px]"/>
+
+    )
+
 }
