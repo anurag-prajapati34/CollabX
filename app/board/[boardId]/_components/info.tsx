@@ -1,16 +1,97 @@
-export const Info=()=>{
+"use client";
+
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
+import { useQuery } from "convex/react";
+import Image from 'next/image'
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Poppins } from "next/font/google";
+import Link from "next/link";
+import { Hint } from "@/components/hint";
+import { RenameTitleModal } from "@/components/modals/rename-title-modal";
+import { Actions } from "@/components/actions";
+import { Menu } from "lucide-react";
+
+interface InfoProps {
+    boardId: string,
+}
+const font = Poppins({
+    subsets: ["latin"],
+    weight: "600",
+});
+
+const TabSeperator = () => {
+    return <div className="text-neutral-300 px-1.5">
+        |
+    </div>
+}
+export const Info = ({ boardId }: InfoProps) => {
+
+
+
+    const data = useQuery(api.board.get, { id: boardId as Id<"boards"> });
+
+    if (!data) {
+        return <InfoSkeleton />
+    }
+
     return (
         <div className=" absolute top-2
          left-2 bg-white rounded-md px-1.5 h-12 flex 
          items-center shadow-md">
-        TODO: info about the board 
+            <Hint label="Go to home" side="bottom" sideOffset={10}>
+                <Button asChild variant={"board"} className="px-2 ">
+                    <Link href={'/'}>
+                        <Image
+                            src={'/logo.svg'}
+                            alt="Logo"
+                            height={40}
+                            width={40}
+                        />
+                        <span
+                            className={cn("font-semibold text-xl ml-2 text-black", font.className)}>
+                            Board
+                        </span></Link>
+                </Button>
+            </Hint>
+            <TabSeperator />
+
+            <RenameTitleModal id={boardId} title={data.title}>
+                <Hint label="Rename board" side="bottom" sideOffset={10}>
+                    <Button
+                        variant={"board"}
+                        className="text-base font-normal px-2">
+                        {data.title}
+                    </Button>
+                </Hint>
+            </RenameTitleModal>
+            <TabSeperator />
+            <Actions
+                id={boardId}
+                title={data.title}
+                side="bottom"
+                sideOffset={10}
+            >
+                <div>
+                    <Hint label="Main menu"
+                        side="bottom"
+                        sideOffset={10}>
+                        <Button size={"icon"} variant={"board"}>
+                            <Menu />
+                        </Button>
+                    </Hint>
+                </div>
+
+            </Actions>
+
         </div>
     )
 }
 
-Info.Skeleton=function InfoSkeleton(){
-   return  (<div className=" absolute top-2
+export function InfoSkeleton() {
+    return (<div className=" absolute top-2
          left-2 bg-white rounded-md px-1.5 h-12 flex 
          items-center shadow-md w-[300px]"/>)
-    
+
 }

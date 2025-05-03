@@ -35,7 +35,7 @@ export const Toolbar = () => {
     </div>
 }
 
-Toolbar.Skeleton = function ToolbarSkeleton() {
+export function ToolbarSkeleton() {
 
     return (
         <div className="absolute top-[50%] bg-white
