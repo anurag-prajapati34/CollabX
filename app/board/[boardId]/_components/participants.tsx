@@ -25,7 +25,6 @@ export const Participants = () => {
             {
                 users.slice(0, MAX_SHOWN_USERS)
                     .map(({ connectionId, info }) => {
-                        console.log("user", info);
                         return <UserAvatar
                             key={connectionId}
                             src={info?.avatar}

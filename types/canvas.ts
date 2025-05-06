@@ -56,7 +56,7 @@ export type TextLayer = {
   fill: Color;
   value?: string;
 };
-export type NodeLayer = {
+export type NoteLayer = {
   type: LayerType.Note;
   x: number;
   y: number;
@@ -125,6 +125,9 @@ export enum CanvasMode {
   SelectionNet,
   Translating,
   Inserting,
-  Pencil,
+Pencil,
   Resizing,
 }
+
+
+export type Layer =RectangleLayer | EllipseLayer | PathLayer | TextLayer | NoteLayer
