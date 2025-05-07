@@ -5,7 +5,7 @@ import { Layer,XYWH } from "@/types/canvas";
 
 const boundingBox=(layers:Layer[]):XYWH | null =>{
 
-    console.log({layers})
+   
     const first=layers[0];
     if(!first){
         return null;

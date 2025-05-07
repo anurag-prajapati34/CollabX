@@ -15,7 +15,7 @@ onPointerDown,
 selectionColor
 }:RectangleProps)=>{
 
-    console.log("rectangel",layer);
+    
 
     const {x,y,width,height,fill}=layer;
     return (
