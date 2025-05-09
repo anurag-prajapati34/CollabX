@@ -33,6 +33,7 @@ import { LiveObject } from "@liveblocks/client";
 import { Key } from "lucide-react";
 import { LayerPreview } from "./layer-preview";
 import { SelectionBox } from "./selection-box";
+import { SelectionTools } from "./selection-tools";
 interface CanvasProps {
   boardId: string;
 }
@@ -290,6 +291,12 @@ export const Canvas = ({ boardId }: CanvasProps) => {
         undo={history.undo}
         redo={history.redo}
       />
+      
+        <SelectionTools
+          camera={camera}
+          setLastUsedColor={setLastUsedColor}
+        />
+ 
       <svg
         onWheel={onWheel}
         onPointerMove={onPointerMove}
