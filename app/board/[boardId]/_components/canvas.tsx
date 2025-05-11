@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Info } from "./info";
 import { Participants } from "./participants";
 import { Toolbar } from "./toolbar";
@@ -39,6 +39,8 @@ import { LayerPreview } from "./layer-preview";
 import { SelectionBox } from "./selection-box";
 import { SelectionTools } from "./selection-tools";
 import { Path } from "./path";
+import { useDisableScrollBounce } from "@/hooks/use-disable-scroll-bounce";
+import { useDeleteLayers } from "@/hooks/use-delete-layers";
 interface CanvasProps {
   boardId: string;
 }
@@ -59,6 +61,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     mode: CanvasMode.None,
   });
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
+  useDisableScrollBounce();
   const history = useHistory();
   const canUndo = useCanUndo();
   const canRedo = useCanRedo();
@@ -404,6 +407,59 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     return layerIdsToColorSelection;
   }, [selections]);
 
+  const selectAll=useMutation(({setMyPresence})=>{
+
+    setMyPresence({
+      selection:layerIds
+    },{
+      addToHistory:true
+    })
+  },[
+    layerIds
+
+  ])
+
+  const deleteLayers=useDeleteLayers();
+  useEffect(()=>{
+
+    function onKeyDown(e:KeyboardEvent){
+      switch(e.key){
+        case "Delete":{
+          if(canvasState.mode===CanvasMode.None){
+            deleteLayers();
+          }
+        }
+        break;
+        case "a": {
+          if (e.ctrlKey || e.metaKey) {
+            e.preventDefault();
+            setCanvasState({ mode: CanvasMode.None });
+            selectAll();
+          }
+        }
+        break;
+        case "y":{
+          if(e.ctrlKey||e.metaKey){
+            history.redo();
+          }
+        }
+        break;
+        case "z":{
+          if(e.ctrlKey||e.metaKey){
+           
+              history.undo();
+            
+          }
+        }
+        break;
+      }
+    }
+    document.addEventListener("keydown",onKeyDown);
+    return ()=>{
+      document.removeEventListener("keydown",onKeyDown);
+    }
+  },[deleteLayers,history,selectAll,canvasState.mode]);
+  
   return (
     <main className=" min-h-screen w-full relative bg-neutral-100 touch none">
       <Info boardId={boardId} />
