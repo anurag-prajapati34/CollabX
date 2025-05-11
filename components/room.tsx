@@ -25,7 +25,10 @@ export const Room = ({ children, roomId, fallback }: RoomPorps) => {
     >
         <RoomProvider id={roomId}
             initialPresence={{
-                cursor:null
+                cursor:null,
+                selection:[],
+                pencilDraft:null,
+                penColor:null
             }}
 
             initialStorage={{
