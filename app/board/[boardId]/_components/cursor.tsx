@@ -15,7 +15,6 @@ connectionId
 
     const info=useOther(connectionId,(user)=>user?.info);
     const name=info?.name||"Teammate";
-
     const cursor=useOther(connectionId,(user)=>user.presence.cursor);
 
     if(!cursor){

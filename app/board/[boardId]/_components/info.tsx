@@ -51,7 +51,7 @@ export const Info = ({ boardId }: InfoProps) => {
                         />
                         <span
                             className={cn("font-semibold text-xl ml-2 text-black", font.className)}>
-                            Board
+                            CollabX
                         </span></Link>
                 </Button>
             </Hint>
