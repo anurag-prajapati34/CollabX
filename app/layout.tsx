@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/providers/convex-client-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Suspense } from "react";
+import { Loading } from "./board/[boardId]/_components/canvas-loading";
 
 
 export const metadata: Metadata = {
@@ -17,12 +19,15 @@ export default function RootLayout({
   return  (
     <html lang="en" >
   <body >
-    <ConvexClientProvider>
+<Suspense fallback={<Loading/>}>
+<ConvexClientProvider>
       <Toaster/>
     
    
         {children}
     </ConvexClientProvider>
+
+</Suspense>
   </body>
 </html>
   )
