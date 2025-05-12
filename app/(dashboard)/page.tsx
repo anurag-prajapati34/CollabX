@@ -25,7 +25,7 @@ if(!isSignedIn){
   return (
     <div className='min-h-[100vh] flex-1 h-[calc(100%-80px)] p-6
     '>
-      {JSON.stringify(searchParams)}
+    
         {
           !organization?<EmptyOrg/>:<BoardList
           orgId={organization.id} 

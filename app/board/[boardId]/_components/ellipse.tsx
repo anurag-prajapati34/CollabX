@@ -14,7 +14,7 @@ export const Ellipse = ({
 }: EllipseProps) => {
   return (
     <ellipse
-      className="drop-shadow-md"
+      className="drop-shadow-md "
       onPointerDown={(e) => onPointerDown(e, id)}
       style={{
         transform: `translate(${layer.x}px,${layer.y}px)`,

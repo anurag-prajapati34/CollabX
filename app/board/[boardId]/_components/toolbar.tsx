@@ -122,13 +122,13 @@ canUndo,
 
           }
         />
-        <ToolButton
+        {/* <ToolButton
           lablel="Hand"
           icon={Hand}
           onClick={() => {}}
           isDisabled={false}
           isActive={false}
-        />
+        /> */}
       </div>
       <div
         className="bg-white rounded-md p-1.5 

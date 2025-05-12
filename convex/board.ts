@@ -1,6 +1,13 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
-const images = ["/plceholders/img.png"];
+const images = [
+  "/placeholders/Illustration1.svg",
+  "/placeholders/Illustration2.svg",
+  "/placeholders/Illustration3.svg",
+  "/placeholders/Illustration4.svg",
+  "/placeholders/Illustration5.svg",
+
+];
 
 export const create = mutation({
   args: {
@@ -168,7 +175,7 @@ export const get=query({
   handler:async (ctx,args)=>{
     const board= await ctx.db.get(args.id);
 
-    console.log("successfully get board ",board);
+  
     return board;
 
   }

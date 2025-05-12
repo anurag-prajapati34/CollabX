@@ -31,6 +31,7 @@
     "perfect-freehand": "^1.2.2",
     "query-string": "^9.1.1",
     "react": "^19.0.0",
+    "react-color": "^2.19.3",
     "react-contenteditable": "^3.3.7",
     "react-dom": "^19.0.0",
     "sonner": "^2.0.1",

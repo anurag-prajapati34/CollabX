@@ -25,6 +25,7 @@ import {
 } from "@liveblocks/react/suspense";
 import { CursorsPresence } from "./cursors-presense";
 import {
+  cn,
   colorToCss,
   connectionIdToColor,
   findInterSectingLayersWithRectangle,
@@ -263,7 +264,6 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
   const onResizeHandlePointerDown = useCallback(
     (corner: Side, initialBounds: XYWH) => {
-      console.log({ corner, initialBounds });
       history.pause();
       setCanvasState({
         mode: CanvasMode.Resizing,
@@ -461,68 +461,81 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   },[deleteLayers,history,selectAll,canvasState.mode]);
   
   return (
-    <main className=" min-h-screen w-full relative bg-neutral-100 touch none">
+    <main className={cn('min-h-screen w-full relative bg-neutral-100 touch none',canvasState.mode===CanvasMode.Pencil&&'cursor-crosshair')}>
       <Info boardId={boardId} />
       <Participants />
       <Toolbar
-        canvasState={canvasState}
-        setCanvasState={setCanvasState}
-        canRedo={canRedo}
-        canUndo={canUndo}
-        undo={history.undo}
-        redo={history.redo}
+      canvasState={canvasState}
+      setCanvasState={setCanvasState}
+      canRedo={canRedo}
+      canUndo={canUndo}
+      undo={history.undo}
+      redo={history.redo}
       />
 
       <SelectionTools camera={camera} setLastUsedColor={setLastUsedColor} />
 
       <svg
-        onWheel={onWheel}
-        onPointerMove={onPointerMove}
-        onPointerLeave={onPointerLeave}
-        onPointerUp={onPointerUp}
-        onPointerDown={onPointerDown}
-        className="h-[100vh] w-[100vh]"
+      onWheel={onWheel}
+      onPointerMove={onPointerMove}
+      onPointerLeave={onPointerLeave}
+      onPointerUp={onPointerUp}
+      onPointerDown={onPointerDown}
+      className="h-[100vh] w-full "
       >
-        <g
-          style={{
-            transform: `translate(${camera.x}px,${camera.y}px)`,
-          }}
+      <defs>
+        <pattern
+          id="dot-grid"
+          x="0"
+          y="0"
+          width="30"
+          height="30"
+          patternUnits="userSpaceOnUse"
         >
-          {layerIds?.map((layerdId) => (
-            <LayerPreview
-              key={layerdId}
-              id={layerdId}
-              onLayerPointerDown={onLayerPointerDown}
-              selectionColor={layerIdsToColorSelection[layerdId]}
-            />
-          ))}
+          <circle cx="2" cy="2" r="2" fill="#cfd1d1" />
+        </pattern>
+      </defs>
+      <rect
+        
+        width={10000}
+        height={10000}
+        fill="url(#dot-grid)"
+      />
+      <g
+        style={{
+        transform: `translate(${camera.x}px,${camera.y}px)`,
+        }}
+      >
+        {layerIds?.map((layerdId) => (
+        <LayerPreview
+          key={layerdId}
+          id={layerdId}
+          onLayerPointerDown={onLayerPointerDown}
+          selectionColor={layerIdsToColorSelection[layerdId]}
+        />
+        ))}
 
-          <SelectionBox onResizeHandlePointerDown={onResizeHandlePointerDown} />
-          {canvasState.mode === CanvasMode.SelectionNet &&
-            canvasState.current != null && (
-              <rect
-                className="fill-blue-500/5 stroke-blue-500 stroke-1"
-                x={Math.min(canvasState.origin.x, canvasState.current.x)}
-                y={Math.min(canvasState.origin.y, canvasState.current.y)}
-                width={Math.abs(canvasState.origin.x - canvasState.current.x)}
-                height={Math.abs(canvasState.origin.y - canvasState.current.y)}
-              />
-            )}
-          <CursorsPresence />
-          {
-            pencilDraft!=null&&pencilDraft?.length>0&&(
-              <Path
-              points={pencilDraft}
-              fill={colorToCss(lastUsedColor)}
-              x={0}
-              y={0}
-
-              />
-
-            )
-          }
-
-        </g>
+        <SelectionBox onResizeHandlePointerDown={onResizeHandlePointerDown} />
+        {canvasState.mode === CanvasMode.SelectionNet &&
+        canvasState.current != null && (
+          <rect
+          className="fill-blue-500/5 stroke-blue-500 stroke-1"
+          x={Math.min(canvasState.origin.x, canvasState.current.x)}
+          y={Math.min(canvasState.origin.y, canvasState.current.y)}
+          width={Math.abs(canvasState.origin.x - canvasState.current.x)}
+          height={Math.abs(canvasState.origin.y - canvasState.current.y)}
+          />
+        )}
+        <CursorsPresence />
+        {pencilDraft != null && pencilDraft?.length > 0 && (
+        <Path
+          points={pencilDraft}
+          fill={colorToCss(lastUsedColor)}
+          x={0}
+          y={0}
+        />
+        )}
+      </g>
       </svg>
     </main>
   );
