@@ -59,6 +59,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
   const [canvasState, setCanvasState] = useState<CanvasState>({
     mode: CanvasMode.None,
+
   });
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
   useDisableScrollBounce();
@@ -128,8 +129,8 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const translateSelectedLayer = useMutation(
     ({ storage, self }, point: Point) => {
       const offset = {
-        x: point.x - canvasState.current.x,
-        y: point.y - canvasState.current.y,
+        x: point.x - canvasState.current?.x,
+        y: point.y - canvasState.current?.y,
       };
 
       const liveLayers = storage.get("layers");

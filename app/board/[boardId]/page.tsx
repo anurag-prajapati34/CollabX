@@ -1,16 +1,18 @@
+"use client"
+
 import { Room } from "@/components/room";
 import { Canvas } from "./_components/canvas";
 import { Loading } from "./_components/canvas-loading";
-interface BoardIdPageProps{
-    params:{
-        boardId:string,
-    }
-}
+import { useParams } from "next/navigation";
 
- const BoardIdPage=({params}:BoardIdPageProps)=>{
+
+ const BoardIdPage=()=>{
+
+    const params=useParams();
+    const boardId=params.boardId as string;
     return (
-        <Room roomId={params.boardId} fallback={<Loading/>}>
-            <Canvas boardId={params.boardId}/>
+        <Room roomId={boardId} fallback={<Loading/>}>
+            <Canvas boardId={boardId}/>
         </Room>
     )
 }
