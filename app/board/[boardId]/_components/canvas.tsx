@@ -471,6 +471,8 @@ export const Canvas = ({ boardId }: CanvasProps) => {
       canUndo={canUndo}
       undo={history.undo}
       redo={history.redo}
+      setLastUsedColor={setLastUsedColor}
+      color={lastUsedColor}
       />
 
       <SelectionTools camera={camera} setLastUsedColor={setLastUsedColor} />

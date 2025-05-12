@@ -11,7 +11,9 @@ import {
   Undo2,
 } from "lucide-react";
 import { ToolButton } from "./tool-button";
-import { CanvasMode, CanvasState, LayerType } from "@/types/canvas";
+import { CanvasMode, CanvasState, Color, LayerType } from "@/types/canvas";
+import { CustomColorButton } from "./custom-color-picker";
+import { set } from "date-fns";
 
 
 
@@ -22,6 +24,8 @@ interface ToolbarProps{
         redo:()=>void;
         canUndo:boolean,
         canRedo:boolean,
+        setLastUsedColor:(color:Color)=>void;
+        color:Color;
 
 }
 
@@ -32,6 +36,8 @@ undo,
 redo,
 canRedo,
 canUndo,
+setLastUsedColor,
+color
 }:ToolbarProps) => {
   return (
     <div
@@ -129,6 +135,10 @@ canUndo,
           isDisabled={false}
           isActive={false}
         /> */}
+         <CustomColorButton
+        onChange={setLastUsedColor}
+        color={color}
+        />
       </div>
       <div
         className="bg-white rounded-md p-1.5 
