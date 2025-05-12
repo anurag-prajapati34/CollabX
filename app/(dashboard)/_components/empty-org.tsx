@@ -1,7 +1,5 @@
 import Image from "next/image";
 import React from "react";
-
-import { NewButton } from "./new-button";
 import { CreateOrgButton } from "./create-org-button";
 
 const EmptyOrg = () => {

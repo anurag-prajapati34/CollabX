@@ -2,9 +2,7 @@
 
 import { colorToCss, hexToRgb } from "@/lib/utils";
 import { Color } from "@/types/canvas";
-import { setConfig } from "next/config";
 import { useState } from "react";
-import {SketchPicker} from "react-color"
 interface ColorPickerPorps {
   onChange: (color: Color) => void;
 }

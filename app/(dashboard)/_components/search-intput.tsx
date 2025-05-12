@@ -1,11 +1,10 @@
 "use client";
 import qs from "query-string";
 import { Search } from "lucide-react";
-import { useDebounceValue, useDebounceCallback } from "usehooks-ts";
+import { useDebounceValue } from "usehooks-ts";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
-import { query } from "@/convex/_generated/server";
 export const SearchInput = () => {
   const router = useRouter();
   const [value, setValue] = useState("");

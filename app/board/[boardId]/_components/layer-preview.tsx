@@ -8,7 +8,6 @@ import { Ellipse } from "./ellipse";
 import { Text } from "./text";
 import { Note } from "./note";
 import { Path } from "./path";
-import { collectMeta } from "next/dist/build/utils";
 import { colorToCss } from "@/lib/utils";
 
 interface LayerPreviewProps {
@@ -84,7 +83,6 @@ switch (layer.type) {
     
        
       default:
-        console.warn("Unknown layer type", layer.type);
         return null;
 
     

@@ -47,11 +47,11 @@ const BoardCard = ({
     if(isFavorite){
         onUnFavorite({id})
         .then(()=>toast.success("Unfavorited"))
-        .catch((err)=>toast.error("Failed to unfavorite"))
+        .catch(()=>toast.error("Failed to unfavorite"))
     }else{
       onFavorite({id,orgId})
       .then(()=>toast.success("Favorited"))
-      .catch((err)=>toast.error("Failed to favorite"))
+      .catch(()=>toast.error("Failed to favorite"))
     }
 }
   return (

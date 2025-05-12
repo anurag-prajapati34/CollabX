@@ -17,7 +17,6 @@ interface RoomPorps {
 
 export const Room = ({ children, roomId, fallback }: RoomPorps) => {
 
-    const live_blocks_public_key = process.env.NEXT_PUBLIC_LIVE_BLOCKS_PUBLIC_KEY!;
     return <LiveblocksProvider
         // publicApiKey={live_blocks_public_key}
         authEndpoint={"/api/liveblocks-auth"}

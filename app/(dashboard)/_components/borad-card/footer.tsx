@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface FooterProps{
     title:string;
     authorLabel:string;
-    createdAtLabel:String;
+    createdAtLabel:string;
     isFavorite:boolean;
     onClick:()=>void;
     disabled:boolean;

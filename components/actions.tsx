@@ -17,7 +17,6 @@ import { ConfirmModal } from "./modals/confirm-modal";
 import { Button } from "./ui/button";
 
 import { RenameTitleModal } from "./modals/rename-title-modal";
-import { useState } from "react";
 interface ActionsProps {
   children: React.ReactNode;
   side?: DropdownMenuContentProps["side"];

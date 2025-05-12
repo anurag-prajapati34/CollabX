@@ -31,7 +31,7 @@ export const RenameTitleModal = ({ children, id, title }: RenameTitleModalProps)
   const onSubmit = () => {
     mutate({ id, title: newTitle })
       .then(() => toast.success("Board title updated"))
-      .catch((err) => toast.error("Failed to update board title"));
+      .catch(() => toast.error("Failed to update board title"));
   };
   return (
     <Dialog>

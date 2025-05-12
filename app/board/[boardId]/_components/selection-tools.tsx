@@ -21,7 +21,7 @@ export const SelectionTools = memo(
 
     const moveToBack = useMutation(
       ({ storage }) => {
-        const liveLayers = storage.get("layers");
+       
         const liveLayerIds = storage.get("layerIds");
 
         const indices: number[] = [];
@@ -41,7 +41,6 @@ export const SelectionTools = memo(
     );
     const moveToFront = useMutation(
       ({ storage }) => {
-        const liveLayers = storage.get("layers");
         const liveLayerIds = storage.get("layerIds");
 
         const indices: number[] = [];

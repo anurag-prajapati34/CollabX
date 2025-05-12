@@ -1,6 +1,5 @@
 import {
   CircleIcon,
-  Hand,
   MousePointer,
 
   Pencil,
@@ -13,7 +12,7 @@ import {
 import { ToolButton } from "./tool-button";
 import { CanvasMode, CanvasState, Color, LayerType } from "@/types/canvas";
 import { CustomColorButton } from "./custom-color-picker";
-import { set } from "date-fns";
+
 
 
 

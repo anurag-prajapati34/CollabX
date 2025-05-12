@@ -1,12 +1,12 @@
 "use client";
-import { OrganizationProfile, OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import {OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import React from "react";
 import { SearchInput } from "./search-intput";
 
 import { InviteButton } from "./invite-button";
 import { useOrganization } from "@clerk/nextjs";
 
-const navbar = () => {
+const Navbar = () => {
 
   const {organization}=useOrganization();
   return (
@@ -50,4 +50,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
