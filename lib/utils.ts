@@ -86,7 +86,7 @@ b:Point
 
   for(const layerId of layerIds){
     const layer=layers.get(layerId);
-    if(layer===null){
+    if(!layer){
       continue;
     }
     const {x,y,height,width}=layer;

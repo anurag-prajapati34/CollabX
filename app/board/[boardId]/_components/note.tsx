@@ -1,6 +1,6 @@
 import { cn, colorToCss, getContrastingColor } from "@/lib/utils";
 import { Kalam } from "next/font/google";
-import ContentEditable from "react-contenteditable";
+import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 import { useMutation } from "@liveblocks/react/suspense";
 import { NoteLayer } from "@/types/canvas";
 const font = Kalam({
@@ -36,8 +36,9 @@ export const Note = ({
     liveLayers.get(id)?.set("value", newValue);
   }, []);
 
-  const handleContentChange = (e: ContentEditable) => {
-    updateValue(e?.target?.value);
+  const handleContentChange = (e: ContentEditableEvent) => {
+   
+    updateValue(e.target.value);
   };
 
   return (

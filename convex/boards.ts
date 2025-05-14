@@ -1,7 +1,7 @@
 import { v } from "convex/values";
 import { getAllOrThrow } from "convex-helpers/server/relationships"
 import { query } from "./_generated/server";
-import { favorite } from "./board";
+
 
 export const get = query({
   args: {

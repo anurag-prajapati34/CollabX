@@ -59,6 +59,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
   const [canvasState, setCanvasState] = useState<CanvasState>({
     mode: CanvasMode.None,
+   
 
   });
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
@@ -128,6 +129,9 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   }, []);
   const translateSelectedLayer = useMutation(
     ({ storage, self }, point: Point) => {
+      if (canvasState.mode != CanvasMode.Translating) {
+        return;
+      }
       const offset = {
         x: point.x - canvasState.current?.x,
         y: point.y - canvasState.current?.y,
@@ -410,7 +414,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const selectAll=useMutation(({setMyPresence})=>{
 
     setMyPresence({
-      selection:layerIds
+      selection:layerIds as string[]
     },{
       addToHistory:true
     })
