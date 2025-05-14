@@ -129,7 +129,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   }, []);
   const translateSelectedLayer = useMutation(
     ({ storage, self }, point: Point) => {
-      if (canvasState.mode != CanvasMode.Translating) {
+      if (canvasState.mode != CanvasMode.Translating || !canvasState.current) {
         return;
       }
       const offset = {
