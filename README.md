@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CollabX - Real-time Collaboration Platform
 
-## Getting Started
+CollabX is a real-time collaboration platform inspired by tools like Miro, built for brainstorming, planning, and designing in teams. Users can create organizations, invite members, and collaborate visually on interactive whiteboards in real-time.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🔒 **User Authentication** – Powered by Clerk for secure sign-up/login.
+- 🏢 **Organization & Member Management** – Create organizations, invite members, assign roles.
+- 🧠 **Boards & Groups** – Organize ideas into shared whiteboards and project groups.
+- ✍️ **Real-time Whiteboard** – Brainstorm, plan, and design together live using Liveblocks.
+- 🗂️ **Persistent State** – All updates sync in real-time using Convex DB.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Frontend:**
+- Next.js (App Router)
+- Tailwind CSS
+- Zustand (State Management)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Backend & Services:**
+- Convex (Real-time database)
+- Clerk (Authentication & Authorization)
+- Liveblocks (Real-time collaboration)
 
-## Learn More
+## 📸 Demo
 
-To learn more about Next.js, take a look at the following resources:
+[https://collab-x-delta.vercel.app/]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 Motivation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+As a passionate software developer, I built CollabX to learn and explore how real-time systems work and how teams collaborate effectively through visual tools.
 
-## Deploy on Vercel
+## 📚 How to Use
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone this repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up `.env.local` with your Clerk and Convex credentials.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Live Link
+
+[https://collab-x-delta.vercel.app/]
+
+## 🙌 Connect With Me
+
+If you like this project or want to collaborate:
+- 💼 [LinkedIn](https://www.linkedin.com/in/anurag-prajapati34/)
+- ✉️ Email: prajapatianurag73240@gmail.com
+
+## 🔖 Relevant Hashtags
+
+`#WebDevelopment` `#NextJS` `#TailwindCSS` `#FullStackDevelopment` `#RealTimeCollaboration` `#OpenSource` `#DevCommunity` `#TechCareers`
+
+---
+
+Feel free to contribute or give feedback via issues or pull requests!
