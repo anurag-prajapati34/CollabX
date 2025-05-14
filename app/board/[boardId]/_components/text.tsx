@@ -2,7 +2,7 @@ import { cn, colorToCss } from "@/lib/utils";
 import { TextLayer } from "@/types/canvas";
 
 import { Kalam } from "next/font/google";
-import ContentEditable from "react-contenteditable";
+import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 import { useMutation } from "@liveblocks/react/suspense";
 const font = Kalam({
   subsets: ["latin"],
@@ -37,7 +37,7 @@ export const Text = ({
     liveLayers.get(id)?.set("value", newValue);
   }, []);
 
-  const handleContentChange = (e: ContentEditable) => {
+  const handleContentChange = (e: ContentEditableEvent) => {
     updateValue(e?.target?.value);
   };
 
