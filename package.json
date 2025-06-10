@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start"
-    
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.1",
@@ -17,13 +16,14 @@
     "@radix-ui/react-avatar": "^1.1.7",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.12",
-    "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tooltip": "^1.1.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "convex": "^1.19.3",
     "convex-helpers": "^0.1.81",
     "date-fns": "^4.1.0",
+    "framer-motion": "^12.16.0",
     "lucide-react": "^0.476.0",
     "nanoid": "^5.1.5",
     "next": "15.2.0",
