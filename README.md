@@ -45,7 +45,7 @@ As a passionate software developer, I built CollabX to learn and explore how rea
 
 ## 🌐 Live Link
 
-[https://collab-x-delta.vercel.app/]
+[https://collab-k2x7dc50d-anurag-prajapatis-projects.vercel.app/]
 
 ## 🙌 Connect With Me
 
