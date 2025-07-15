@@ -23,7 +23,7 @@ CollabX is a real-time collaboration platform inspired by tools like Miro, built
 - Liveblocks (Real-time collaboration)
 
 ## 📸 Demo
-<a href='collabx-six.vercel.app'>Live 🌐</a>
+<a href='collabx-six.vercel.app' target='_blank'>Live 🌐</a>
 
 ## Screenshots
 ![Home page](CollabX/landingpage1.png)
