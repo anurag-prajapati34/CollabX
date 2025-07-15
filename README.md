@@ -1,4 +1,4 @@
-# CollabX - Real-time Collaboration Platform
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6159016f-366f-47e7-867c-3e39b30f96e8" /># CollabX - Real-time Collaboration Platform
 
 CollabX is a real-time collaboration platform inspired by tools like Miro, built for brainstorming, planning, and designing in teams. Users can create organizations, invite members, and collaborate visually on interactive whiteboards in real-time.
 
@@ -25,6 +25,9 @@ CollabX is a real-time collaboration platform inspired by tools like Miro, built
 ## 📸 Demo
 
 [https://collab-k2x7dc50d-anurag-prajapatis-projects.vercel.app/]
+
+## Screenshots
+![Home page](Collabx/landingpage1.png)
 
 ## 💡 Motivation
 
