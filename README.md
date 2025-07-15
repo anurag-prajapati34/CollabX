@@ -27,7 +27,7 @@ CollabX is a real-time collaboration platform inspired by tools like Miro, built
 [https://collab-k2x7dc50d-anurag-prajapatis-projects.vercel.app/]
 
 ## Screenshots
-![Home page](Collabx/landingpage1.png)
+![Home page](CollabX/landingpage1.png)
 
 ## 💡 Motivation
 
