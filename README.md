@@ -22,9 +22,10 @@ CollabX is a real-time collaboration platform inspired by tools like Miro, built
 - Clerk (Authentication & Authorization)
 - Liveblocks (Real-time collaboration)
 
-## 📸 Demo
+## 📸 Live
 <a href='https://collabx-six.vercel.app' target='_blank'>Live 🌐</a>
-
+## 📸 Demo Video 
+<a href='https://www.youtube.com/embed/LM8lq6xjyJw?si=IjyVFPQYZNmt94cu' target='_blank'>Demov Video 🌐</a>
 ## Screenshots
 ![Home page](/public/images/whiteboard4.png)
 
@@ -45,14 +46,12 @@ As a passionate software developer, I built CollabX to learn and explore how rea
    npm run dev
    ```
 
-## 🌐 Live Link
-
-[https://collab-k2x7dc50d-anurag-prajapatis-projects.vercel.app/]
 
 ## 🙌 Connect With Me
 
 If you like this project or want to collaborate:
 - 💼 [LinkedIn](https://www.linkedin.com/in/anurag-prajapati34/)
+- X [X](https://x.com/anurag_x34)
 - ✉️ Email: prajapatianurag73240@gmail.com
 
 ## 🔖 Relevant Hashtags
